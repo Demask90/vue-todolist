@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container" id="root">
+        <div class="to-do-list">
+            <div class="img">
+                <img src="https://www.boolean.careers/images/misc/logo.png" alt="Logo Boolean">
+            </div>
+            <div class="input-user">
+                <input type="text" v-model="newTask" placeholder="Aggiungi una task" @keyUp.Enter="submitTask">
+                <button type="submit" @click="submitTask" >Submit</button>
+            </div>
+            <div class="filterSelection">
+                Seleziona un filtro:
+                <select id="select-value" v-model="selectedStatus">
+                    <option value="all">Tutte</option>
+                    <option value="true">Completata</option>
+                    <option value="false">Da fare</option>
+                </select>
+            </div>
+        </div>
+        <div class="tasks">
+            <ul id="tasks-list" v-if="(computed_tasks.length > 0)">
+                <li v-for="(task, index) in computed_tasks" class="task" v-bind:class="String(task.done)">
+                    <span>
+                        <span v-if="(task.done == false)" class="status-task"  @click="changeStatus(task, index)">
+                            <i class="fas fa-check"></i>
+                        </span>
+                        <span v-else class="status-task">
+                            <i class="fas fa-times"  @click="changeStatus(task, index)"></i>
+                        </span>
+                        <span class="title-task" @click="changeStatus(task, index)">
+                            {{task.title.toUpperCase()}}
+                        </span>
+                    </span>
+                    <span class="delete" @click="removeTask(index)">DELETE</span>
+                </li>
+                
+            </ul>
+            <h2 v-else class="no-tasks">Non ci sono elementi nella lista</h2>
+            <div class="remove-all-tasks" title="Cancella tutte le task"><i class="far fa-trash-alt" @click="removeAllTasks"></i></div>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="main.js"></script>
+</body>
+</html>

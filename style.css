@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Helvetica,
+    sans-serif;
+}
+
+.container {
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;}
+
+.to-do-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.to-do-list .img {
+    width: 400px; 
+    margin-bottom: 15px;
+}
+
+.to-do-list img { 
+    width: 100%;
+}
+
+.input-user > button, .filterSelection > select {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 0px;
+    border: none;
+    outline: none;
+    background-color: rgb(235, 235, 235);
+}
+
+.filterSelection > select {
+    margin: 15px auto
+}
+
+.input-user > button:hover, .filterSelection > select {
+    filter: brightness(0.9);
+
+}
+.input-user input, .filterSelection > select {
+    height: 36px; 
+    padding: 0px 10px; 
+    outline: none;
+}
+
+.tasks {
+    position: relative; 
+    width: 100%; 
+    margin: 30px auto; 
+    background-color: rgba(240, 240, 249, 0.8); 
+    border-radius: 15px;
+}
+.task {
+    min-width: 450px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 10px; 
+    margin: 10px auto; 
+    border-radius: 5px;
+}
+.task:hover{
+    filter: brightness(0.9);
+}
+
+.title-task {
+    margin-left: 10px; 
+    cursor: pointer; 
+    font-weight: 600;
+}
+.status-task {
+    cursor: pointer; transform: scale(1.1);
+}
+.status-task > i {
+    cursor: pointer; font-size: 20px;
+}
+
+.true {
+    background-color: rgb(108, 165, 97); 
+    transition: 0.5s;
+     color: white;
+}
+
+.false {
+    background-color: rgb(228, 228, 225);  
+    transition: 0.5s;
+     color: black;
+}
+
+.fa-check:hover {
+    color:rgb(108, 165, 97);
+}
+.fa-times {
+    color: indianred;
+}
+
+.delete {
+    display: inline-block; 
+    cursor: pointer; 
+    border-left: 1px solid black; 
+    padding: 10px 15px;
+}
+.delete:hover {
+    background-color: rgb(205, 92, 92); 
+    color: white; 
+    transition: 0.9;
+}
+ 
+.tasks ul {
+    display: flex; 
+    flex-direction: column-reverse;
+}
+.tasks li {
+    width: 60%; 
+    min-width: 400px;
+}
+
+.no-tasks {
+    text-align: center; 
+    padding: 20px 0px;
+}
+
+.remove-all-tasks {
+    position: absolute; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    width: 50px; 
+    height: 50px; 
+    top: -25px; 
+    right: -25px; 
+    cursor: pointer; 
+    background-color: rgb(245, 207, 195); 
+    border-radius: 50%;
+}
+
+.remove-all-tasks:hover {
+    filter: brightness(0.9);
+}
+
+.remove-all-tasks > .fa-trash-alt {
+    font-size: 30px; 
+}
